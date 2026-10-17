@@ -12,6 +12,7 @@
 
     </head>
     <body>
+        @include('partials.notifications')
         @include('partials.loader')
         @include('partials.header') 
         @yield('content')

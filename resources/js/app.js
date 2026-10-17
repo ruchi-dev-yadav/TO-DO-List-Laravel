@@ -25,3 +25,37 @@ document.addEventListener('submit', function (event) {
         showPageLoader();
     }
 });
+
+
+
+// global toaster js
+document.addEventListener('DOMContentLoaded', function () {
+    const toasts = document.querySelectorAll('.toast');
+
+    function closeToast(toast) {
+        if (!toast || toast.classList.contains('toast-hiding')) {
+            return;
+        }
+
+        toast.classList.add('toast-hiding');
+
+        setTimeout(function () {
+            toast.remove();
+        }, 300);
+    }
+
+    toasts.forEach(function (toast) {
+        const closeButton = toast.querySelector('.toast-close');
+
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                closeToast(toast);
+            });
+        }
+
+        // Automatically hide after 5 seconds
+        setTimeout(function () {
+            closeToast(toast);
+        }, 5000);
+    });
+});

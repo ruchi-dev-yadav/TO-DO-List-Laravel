@@ -9,7 +9,7 @@
         @vite(['resources/css/app.css','resources/js/app.js'])
     </head>
     <body>
-        @include('partials.loader')
+        @include('partials.notifications') @include('partials.loader')
         <header class="bg-white border-b border-slate-200">
             <div
                 class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
