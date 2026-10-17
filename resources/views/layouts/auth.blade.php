@@ -6,8 +6,10 @@
         <title>@yield('title','TO DO List')</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="icon" type="image/png" href="{{ asset('favicon.jpg') }}" />
+        @vite(['resources/css/app.css','resources/js/app.js'])
     </head>
     <body>
+        @include('partials.loader')
         <header class="bg-white border-b border-slate-200">
             <div
                 class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"

@@ -8,8 +8,11 @@
         <link rel="icon" type="image/png" href="{{ asset('favicon.jpg') }}">
         <!-- @yield('styles') -->
         @stack('styles')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body>
+        @include('partials.loader')
         @include('partials.header') 
         @yield('content')
         @include('partials.footer')
