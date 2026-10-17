@@ -123,6 +123,4 @@
         </div>
     </div>
 </div>
-@endsection @push('script')
-<script></script>
-@endpush
+@endsection

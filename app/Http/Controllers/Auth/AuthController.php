@@ -56,4 +56,10 @@ class AuthController extends Controller
         auth()->login($user);
         return redirect()->route('dashboard')->with('success', 'Login successful!');
     }
+    public function logout()
+    {
+        auth()->logout();
+    // $request->session()->invalidate();
+        return redirect()->route('/')->with('Logout!');
+    }
 }
