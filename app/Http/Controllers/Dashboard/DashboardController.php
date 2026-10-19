@@ -5,12 +5,18 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('dashboard.dashboard');
+        $userid = Auth::id();
+        $tasks = Task::where('user_id', $userid)->latest()->get();
+        $completedTask = Task::where('user_id', $userid)->where('is_completed', 1)->count();
+        $pendingTask = Task::where('user_id', $userid)->where('is_completed', 0)->count();
+        $totalTask = Task::where('user_id', $userid)->count();
+        return view('dashboard.dashboard', compact('tasks', 'completedTask', 'pendingTask', 'totalTask'));
     }
 
     public function addTask()
